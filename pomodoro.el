@@ -109,12 +109,14 @@
                               (= (mod pomodoros pomodoro-nth-for-longer-break) 0))
                          (cons pomodoro-long-break-time pomodoro-long-break-start-message)
                        (cons pomodoro-break-time pomodoro-break-start-message))))
+	      (beep)
               (if (yes-or-no-p (cdr p))
                   (progn
                     (setq pomodoro-current-cycle pomodoro-break-cycle)
                     (setq pomodoros (incf pomodoros))
                     (pomodoro-set-start-time (car p)))
                 (pomodoro-set-start-time pomodoro-extra-time)))
+	  (beep)
           (if (yes-or-no-p pomodoro-work-start-message)
               (progn
 								(setq pomodoro-current-cycle pomodoro-work-cycle)
